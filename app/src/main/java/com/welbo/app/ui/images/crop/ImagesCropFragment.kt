@@ -1,32 +1,57 @@
 package com.welbo.app.ui.images.crop
 
-import android.app.AlertDialog
-import android.app.Dialog
-import android.content.DialogInterface
+import android.graphics.Rect
+import android.net.Uri
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.welbo.app.R
+import com.canhub.cropper.CropImageView
+import com.welbo.app.databinding.DialogImagesCropBinding
 
-class ImagesCropFragment : DialogFragment() {
+class ImagesCropFragment(
+    private val uri: Uri,
+    private val onCropCompleted: (Rect) -> Unit
+) : DialogFragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        isCancelable = false
+    private var _binding: DialogImagesCropBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = DialogImagesCropBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        return activity?.let {
-            val builder = AlertDialog.Builder(it)
-            val inflater = requireActivity().layoutInflater;
+        binding.cropImageView.apply {
+            setImageUriAsync(uri)
+            setAspectRatio(16, 9)
+            setFixedAspectRatio(true)
+            guidelines = CropImageView.Guidelines.ON
+        }
 
-            builder.setView(inflater.inflate(R.layout.dialog_uploading_image, null))
-                .setNegativeButton("Cancel upload",
-                    DialogInterface.OnClickListener { dialog, id ->
-                        getDialog()?.cancel()
-                    })
-            builder.create()
-        } ?: throw IllegalStateException("Activity cannot be null")
+        binding.submitButton.setOnClickListener {
+            val cropRect = binding.cropImageView.cropRect
+            if (cropRect != null) {
+                onCropCompleted(cropRect)
+                dismiss()
+            }
+        }
+
+        binding.cancelButton.setOnClickListener {
+            dismiss()
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 

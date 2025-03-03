@@ -3,7 +3,12 @@ package com.welbo.app.ui.images.upload
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
+import android.graphics.Point
 import android.os.Bundle
+import android.view.Display
+import android.view.Gravity
+import android.view.Window
+import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
 import com.welbo.app.R
 
@@ -20,7 +25,7 @@ class ImagesUploadFragment : DialogFragment() {
             val builder = AlertDialog.Builder(it)
             val inflater = requireActivity().layoutInflater;
 
-            builder.setView(inflater.inflate(R.layout.dialog_uploading_image, null))
+            builder.setView(inflater.inflate(R.layout.dialog_image_upload, null))
                 .setNegativeButton("Cancel upload",
                     DialogInterface.OnClickListener { dialog, id ->
                         getDialog()?.cancel()
