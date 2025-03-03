@@ -1,4 +1,4 @@
-package com.welbo.app.ui.images.upload
+package com.welbo.app.ui.images.crop
 
 import android.app.AlertDialog
 import android.app.Dialog
@@ -7,7 +7,7 @@ import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import com.welbo.app.R
 
-class ImagesUploadFragment : DialogFragment() {
+class ImagesCropFragment : DialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +31,6 @@ class ImagesUploadFragment : DialogFragment() {
 
 
     companion object {
-        val TAG = ImagesUploadFragment::class.java.simpleName
+        val TAG = ImagesCropFragment::class.java.simpleName
     }
 }
