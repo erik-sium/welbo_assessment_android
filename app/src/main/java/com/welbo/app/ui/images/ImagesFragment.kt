@@ -1,12 +1,11 @@
 package com.welbo.app.ui.images
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.welbo.app.R
-import com.google.android.material.snackbar.Snackbar
 import com.welbo.app.databinding.FragmentImagesBinding
 
 class ImagesFragment : Fragment() {
@@ -30,15 +29,27 @@ class ImagesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.floatingActionButton.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .setAnchorView(R.id.floatingActionButton).show()
+        binding.floatingActionButton.setOnClickListener { _ ->
+            displayImagePicker()
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+
+    private fun displayImagePicker() {
+        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
+            addCategory(Intent.CATEGORY_OPENABLE)
+            type = "image/*"
+            putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/jpeg", "image/png"))
+        }
+
+        // NOTE about technical design decision: going for deprecated solution because this one allows you to filter out images
+        // with unsupported file extensions before they are picked. Also, robots run on older versions of Android, and newest
+        // way of picking images on Android is from Android 13 and above.
+        startActivityForResult(intent, 1)
     }
 }
