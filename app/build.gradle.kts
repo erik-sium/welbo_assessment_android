@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.erikminhas.welboassessmentandroid"
+    namespace = "com.welbo.app"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.erikminhas.welboassessmentandroid"
+        applicationId = "com.welbo.app"
         minSdk = 26
         targetSdk = 34
         versionCode = 1

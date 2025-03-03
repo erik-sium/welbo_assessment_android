@@ -1,4 +1,4 @@
-package com.erikminhas.welboassessmentandroid
+package com.welbo.app
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.erikminhas.welboassessmentandroid", appContext.packageName)
+        assertEquals("com.welbo.app", appContext.packageName)
     }
 }

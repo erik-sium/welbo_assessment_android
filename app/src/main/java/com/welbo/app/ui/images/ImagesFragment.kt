@@ -5,9 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.erikminhas.welboassessmentandroid.R
-import com.erikminhas.welboassessmentandroid.databinding.FragmentImagesBinding
+import com.welbo.app.R
 import com.google.android.material.snackbar.Snackbar
+import com.welbo.app.databinding.FragmentImagesBinding
 
 class ImagesFragment : Fragment() {
 

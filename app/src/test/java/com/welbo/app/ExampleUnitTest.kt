@@ -1,4 +1,4 @@
-package com.erikminhas.welboassessmentandroid
+package com.welbo.app
 
 import org.junit.Test
 

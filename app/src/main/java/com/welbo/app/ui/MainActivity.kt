@@ -1,7 +1,6 @@
 package com.welbo.app.ui
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -9,8 +8,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.erikminhas.welboassessmentandroid.R
-import com.erikminhas.welboassessmentandroid.databinding.ActivityMainBinding
+import com.welbo.app.R
+import com.welbo.app.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
+        menuInflater.inflate(R.menu.main_bottom_nav_menu, menu)
         return true
     }
 
@@ -41,7 +40,6 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
     }
