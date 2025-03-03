@@ -1,20 +1,17 @@
-package com.welbo.app.ui
+package com.welbo.app.ui.images
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
 import com.erikminhas.welboassessmentandroid.R
-import com.erikminhas.welboassessmentandroid.databinding.FragmentFirstBinding
+import com.erikminhas.welboassessmentandroid.databinding.FragmentImagesBinding
+import com.google.android.material.snackbar.Snackbar
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
-class FirstFragment : Fragment() {
+class ImagesFragment : Fragment() {
 
-    private var _binding: FragmentFirstBinding? = null
+    private var _binding: FragmentImagesBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,13 +22,19 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        _binding = FragmentImagesBinding.inflate(inflater, container, false)
         return binding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.floatingActionButton.setOnClickListener { view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null)
+                .setAnchorView(R.id.floatingActionButton).show()
+        }
     }
 
     override fun onDestroyView() {
