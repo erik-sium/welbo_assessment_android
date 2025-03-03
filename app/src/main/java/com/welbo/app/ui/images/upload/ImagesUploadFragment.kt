@@ -3,12 +3,7 @@ package com.welbo.app.ui.images.upload
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
-import android.graphics.Point
 import android.os.Bundle
-import android.view.Display
-import android.view.Gravity
-import android.view.Window
-import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
 import com.welbo.app.R
 

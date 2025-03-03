@@ -34,6 +34,7 @@ class ImagesCropFragment(
             setAspectRatio(16, 9)
             setFixedAspectRatio(true)
             guidelines = CropImageView.Guidelines.ON
+            setMinCropResultSize(1920, 1080)
         }
 
         binding.submitButton.setOnClickListener {
