@@ -9,15 +9,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.welbo.app.databinding.FragmentImagesBinding
+import com.welbo.app.ui.images.crop.ImagesCropFragment
 import com.welbo.app.ui.images.upload.ImagesUploadFragment
 
 class ImagesFragment : Fragment() {
 
     private var _binding: FragmentImagesBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,14 +23,14 @@ class ImagesFragment : Fragment() {
     ): View {
 
         _binding = FragmentImagesBinding.inflate(inflater, container, false)
-        return binding.root
-
+        return _binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.floatingActionButton.setOnClickListener { _ ->
+        // TODO: bang operator needs removing eventually
+        _binding!!.floatingActionButton.setOnClickListener { _ ->
             displayImagePicker()
         }
     }
