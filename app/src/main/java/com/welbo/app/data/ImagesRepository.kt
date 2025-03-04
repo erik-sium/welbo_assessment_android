@@ -11,26 +11,26 @@ import java.util.List
 import javax.inject.Inject
 
 interface ImagesRepository {
-    suspend fun upload(imageFile: File)
-    suspend fun crop(filename: String, coordinates: Rect): List<RemoteImageItem>
-    suspend fun getAll(): List<RemoteImageItem>
+//    suspend fun upload(imageFile: File)
+//    suspend fun crop(filename: String, coordinates: Rect): List<RemoteImageItem>
+//    suspend fun getAll(): List<RemoteImageItem>
 }
 
-class ImagesRepositoryImplementation @Inject constructor(
-    private val api: ImagesApi
-): ImagesRepository {
+class ImagesRepositoryImplementation
+//    private val api: ImagesApi
+    (): ImagesRepository {
 
-    override suspend fun upload(imageFile: File) {
-        val requestFile: RequestBody = RequestBody.create(MediaType.parse("image/*"), imageFile);
-        val body: MultipartBody.Part = MultipartBody.Part.createFormData("file", imageFile.getName(), requestFile);
-
-        api.upload(body)
-    }
+//    override suspend fun upload(imageFile: File) {
+//        val requestFile: RequestBody = RequestBody.create(MediaType.parse("image/*"), imageFile);
+//        val body: MultipartBody.Part = MultipartBody.Part.createFormData("file", imageFile.getName(), requestFile);
+//
+//        api.upload(body)
+//    }
 
 //    override fun crop(filename: String, coordinates: Rect): List<ImageItem> {
 //        return listOf<ImageItem>()
 //    }
 
-    override suspend fun getAll(): List<RemoteImageItem> = api.getAll()
+//    override suspend fun getAll(): List<RemoteImageItem> = api.getAll()
 
 }

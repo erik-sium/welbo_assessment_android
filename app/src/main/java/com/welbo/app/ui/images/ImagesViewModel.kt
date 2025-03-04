@@ -18,10 +18,10 @@ class ImagesViewModel @Inject constructor(
     private val imagesRepository: ImagesRepository
 ) : ViewModel() {
 
-     fun uploadImage(imageFileUri: Uri) = viewModelScope.launch(Dispatchers.IO) {
-        try {
-            imagesRepository.upload(File(imageFileUri!!.path))
-        } catch (exception: Exception) {} finally {}
-        }
-    }
+//     fun uploadImage(imageFileUri: Uri) = viewModelScope.launch(Dispatchers.IO) {
+//        try {
+//            imagesRepository.upload(File(imageFileUri!!.path))
+//        } catch (exception: Exception) {} finally {}
+//        }
+//    }
 }
