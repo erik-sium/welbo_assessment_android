@@ -15,7 +15,7 @@ import com.welbo.app.ui.images.upload.ImagesUploadFragment
 class ImagesFragment : Fragment() {
 
     private var _binding: FragmentImagesBinding? = null
-
+    private val viewModel: ImagesViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,9 +58,18 @@ class ImagesFragment : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == REQUEST_CODE_PICK_IMAGE && resultCode == RESULT_OK) {
-            val selectedImageUri: Uri? = data?.data
+            // TODO: if image resolution < 1920x1080, then display error and abort process
 
+            val selectedImageUri: Uri? = data?.data
+            viewModel.uploadImage(selectedImageUri)
             ImagesUploadFragment().show(childFragmentManager, ImagesUploadFragment.TAG)
+
+
+//            val dialog = ImagesCropFragment(selectedImageUri!!) { cropRect ->
+//                // Handle the cropRect (e.g., send coordinates to the server)
+//            }
+//
+//            dialog.show(childFragmentManager, ImagesUploadFragment.TAG)
         }
     }
 

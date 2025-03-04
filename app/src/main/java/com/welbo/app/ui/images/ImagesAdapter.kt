@@ -7,9 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.welbo.app.R
-import com.welbo.app.data.images.model.ImageItem
+import com.welbo.app.data.images.model.RemoteImageItem
 
-class ImagesAdapter(private val images: List<ImageItem>) : RecyclerView.Adapter<ImagesAdapter.ImageViewHolder>() {
+class ImagesAdapter(private val images: List<RemoteImageItem>) : RecyclerView.Adapter<ImagesAdapter.ImageViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_image, parent, false)
