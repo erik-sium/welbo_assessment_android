@@ -1,10 +1,11 @@
 package com.welbo.app.data.images.api
 
-import okhttp3.ResponseBody
+import com.welbo.app.data.images.model.ImageItem
 import retrofit2.http.GET
+import java.util.List
 
 interface ImagesApi {
 
     @GET("/api/images/")
-    suspend fun getAll(): ResponseBody
+    suspend fun getAll(): List<ImageItem>
 }

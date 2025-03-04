@@ -1,4 +1,7 @@
 package com.welbo.app
 
-class WelboApplication {
-}
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class WelboApplication : Application() {}

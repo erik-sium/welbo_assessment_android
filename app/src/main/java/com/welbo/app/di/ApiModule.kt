@@ -1,6 +1,6 @@
 package com.welbo.app.di
 
-import com.welbo.app.data.images.api
+import com.welbo.app.data.images.api.ImagesApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
