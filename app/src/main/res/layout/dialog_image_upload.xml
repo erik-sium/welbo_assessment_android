@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="24dp"
+    android:paddingStart="24dp">
+
+    <ProgressBar
+        android:indeterminate="true"
+        android:indeterminateTint="#D8BFD8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?attr/circularProgressIndicatorStyle" />
+
+    <TextView
+        android:text="Uploading your image..."
+        android:textAppearance="?attr/textAppearanceBodyLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp" />
+
+</LinearLayout>
